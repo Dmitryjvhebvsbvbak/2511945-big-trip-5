@@ -1,23 +1,11 @@
-import {FilterType} from '../const.js';
-
-export default class FiltersModel {
-  #filter = FilterType.EVERYTHING;
-  #observers = [];
+export default class FilterModel {
+  #filter = 'everything';
 
   get filter() {
     return this.#filter;
   }
 
-  setFilter(filter) {
-    this.#filter = filter;
-    this.#notifyObservers();
-  }
-
-  addObserver(observer) {
-    this.#observers.push(observer);
-  }
-
-  #notifyObservers() {
-    this.#observers.forEach((observer) => observer());
+  set filter(newFilter) {
+    this.#filter = newFilter;
   }
 }
